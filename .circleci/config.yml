@@ -26,8 +26,6 @@ jobs:
     steps:
       - checkout
       - run:
-          requires:
-            - print_hello
           name: "Say world"
           command: "Say World!"
 
