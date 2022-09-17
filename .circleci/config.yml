@@ -28,6 +28,18 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - print_pipeline_id
+  
+  check_fail_job:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - run:
+          command: echo "Starting to fail job"
+                   return 1
+      - run:
+          command: echo "Job failed!!!"
+          when: on_fail
+          
 workflows:
   my_workflow:
     jobs:
@@ -36,3 +48,4 @@ workflows:
           requires:
             - save_hello_world_output
       - use_commad
+      - check_fail_job
