@@ -19,7 +19,7 @@ jobs:
       - checkout
       - run:
           name: "Save hello world in file"
-          command: echo "Hello $name!" > output.txt
+          command: echo "Hello $name!" > ~/output.txt
       - persist_to_workspace:
           root: ~/
           paths:
