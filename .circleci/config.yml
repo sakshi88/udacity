@@ -19,7 +19,7 @@ jobs:
       - checkout
       - run:
           name: "Save hello world in file"
-          command: "echo Hello $name!" > output.txt
+          command: echo "Hello $name!" > output.txt
       - persist_to_workspace:
           root: ~/
           paths:
@@ -42,3 +42,5 @@ workflows:
       - say-hello
       - save_hello_world_output
       - print_output_file
+          requires:
+            - save_hello_world_output
