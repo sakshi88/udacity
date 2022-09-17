@@ -12,22 +12,22 @@ jobs:
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
-  print_hello:
+  save_hello_world_output:
     docker:
       - image: circleci/node:13.8.0
     steps:
       - checkout
       - run:
-          name: "Say hello"
-          command: "echo Hello $name!"
-  print_world:
+          name: "Save hello world in file"
+          command: "echo Hello $name!" > output.txt
+  print_output_file:
     docker:
       - image: circleci/node:13.8.0
     steps:
       - checkout
       - run:
-          name: "Say world"
-          command: "echo Say World!"
+          name: "Print file"
+          command: "cat output.txt"
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -35,5 +35,5 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
-      - print_hello
-      - print_world
+      - save_hello_world_output
+      - print_output_file
