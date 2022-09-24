@@ -3,5 +3,6 @@
   user: ubuntu
   become: true
   become_method: sudo
-    roles:
-      - setup
+  become_user: root
+  roles:
+    - setup
