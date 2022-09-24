@@ -1,13 +1,6 @@
 version: 2.1
 orbs:
-jobs:
-  myjob1:
-    docker:
-      - image: 
-    steps:
-      - checkout
-      - run: echo "hello world"
-  
+jobs:  
   create_infrastructure: 
     docker:
       - image: amazon/aws-cli
