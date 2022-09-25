@@ -52,9 +52,7 @@ jobs:
     docker:
       - image:  amazon/aws-cli
     steps:
-      - run:
-          name: smoke test
-          command: return 1
+      - run: return 1
       - destroy_environment
 
 workflows:
